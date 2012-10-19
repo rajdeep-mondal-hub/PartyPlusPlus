@@ -535,8 +535,12 @@
         backgroundQueue = dispatch_queue_create("downloadQueue", NULL);
         
         // 3) Modify process to be the following
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
             dispatch_async(backgroundQueue, ^(void) {
                 [self uploadImage:imageToSave];
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                });
             });
         
     }

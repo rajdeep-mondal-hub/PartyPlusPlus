@@ -682,15 +682,21 @@
         
         // Attempted multithreading, but broke photo upload
         
-//        dispatch_queue_t downloadQueue = dispatch_queue_create("image downloader", NULL);
-//        dispatch_async(downloadQueue, ^{
-//            //Upload image to event
-//            [self uploadImage:imageToSave];
-//        });
+        dispatch_queue_t downloadQueue = dispatch_queue_create("image downloader", NULL);
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+        dispatch_async(downloadQueue, ^{
+            //Upload image to event
+            [self uploadImage:imageToSave];
+            
+            // returns to main thread
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            });
+        });
 //        dispatch_release(downloadQueue);
         
         
-        [self uploadImage:imageToSave];
+//        [self uploadImage:imageToSave];
 
 
     }
