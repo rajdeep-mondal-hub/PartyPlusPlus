@@ -78,7 +78,7 @@
             [loading removeFromSuperview];
         });
     });
-    dispatch_release(downloadQueue);
+//    dispatch_release(downloadQueue);
 }
 
 #pragma mark - View Controller lifecycle

@@ -606,16 +606,16 @@
 		D2D4E339162900F9001EE23B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PartyPlusPlus/PartyPlusPlus-Prefix.pch";
 				INFOPLIST_FILE = "PartyPlusPlus/PartyPlusPlus-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -625,16 +625,16 @@
 		D2D4E33A162900F9001EE23B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PartyPlusPlus/PartyPlusPlus-Prefix.pch";
 				INFOPLIST_FILE = "PartyPlusPlus/PartyPlusPlus-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

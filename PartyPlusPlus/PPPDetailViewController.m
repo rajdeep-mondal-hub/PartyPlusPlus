@@ -264,7 +264,7 @@
                 [self.navigationController.navigationItem setRightBarButtonItem:oldItem];
             });
         });
-        dispatch_release(downloadQueue);
+//        dispatch_release(downloadQueue);
     } else [self.coverImageView setImage:self.event.image];
 }
 
@@ -337,7 +337,7 @@
                 [loading removeFromSuperview];
             });
         });
-        dispatch_release(downloadQueue);
+//        dispatch_release(downloadQueue);
     }
 }
 

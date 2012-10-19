@@ -744,7 +744,7 @@
                 [loading removeFromSuperview];
             });
         });
-        dispatch_release(downloadQueue);
+//        dispatch_release(downloadQueue);
 }
 
 #pragma mark - Actionsheet Delegate Methods

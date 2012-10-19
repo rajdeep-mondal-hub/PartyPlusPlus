@@ -122,7 +122,7 @@
                 [loading removeFromSuperview];
             });
         });
-        dispatch_release(downloadQueue);
+//        dispatch_release(downloadQueue);
     }
 }
 
@@ -153,7 +153,7 @@
                 [loading removeFromSuperview];
             });
         });
-        dispatch_release(downloadQueue);
+//        dispatch_release(downloadQueue);
     }
 }
 
