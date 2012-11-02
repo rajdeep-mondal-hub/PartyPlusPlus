@@ -54,6 +54,7 @@
 }
 
 - (void)downloadPhoto:(NSString *)urlStr {
+    NSLog(@"SAMenu - %@",urlStr);
     self.userProfilePictureView.clipsToBounds = YES;
     // Download photo
     UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];

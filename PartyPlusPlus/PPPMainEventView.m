@@ -94,6 +94,7 @@
 }
 
 - (void)downloadPhoto:(NSString *)urlStr {
+    NSLog(@"PPPME (not IMGV) - %@",urlStr);
     if (!self.event.image) {
         // Download photo
         UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
@@ -127,6 +128,7 @@
 }
 
 - (void)downloadPhoto:(NSString *)urlStr forImageView:(UIImageView*)imageView {
+    NSLog(@"PPPME (IMGV) - %@",urlStr);
     if (!self.event.image) {
         // Download photo
         UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];

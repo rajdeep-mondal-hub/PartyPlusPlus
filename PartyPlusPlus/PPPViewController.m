@@ -36,6 +36,8 @@
 // Get write permissions
 - (void)getWritePermissionsWithCompletionBlock:(void (^)(void))block {
     // include any of the "publish" or "manage" permissions
+    if(![[[FBSession activeSession] permissions] containsObject:@"publish_stream"]){
+
     NSArray *writePermissions = [NSArray arrayWithObjects:@"publish_stream", @"rsvp_event",
  nil];
     [[FBSession activeSession] reauthorizeWithPublishPermissions:writePermissions
@@ -45,6 +47,8 @@
                                                        block();
                                                    }
                                                }];
+    }
+    block();
 }
 
 /*
@@ -720,6 +724,7 @@
 
 #pragma mark - Downloading Images
 - (void)downloadPhoto:(NSString *)urlStr forImageView:(UIImageView*)imageView {
+    NSLog(@"PPPVC - %@",urlStr);
         // Download photo
         UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         [loading startAnimating];
@@ -764,8 +769,11 @@
     }
     if (buttonIndex == 0 || buttonIndex == 1 || buttonIndex == 2) {
         [self rsvpEventWithEID:[tEvent.eventId stringValue] andRSVP:rsvpString];
+//        [self refresh];
+// TODO: Add to the local array and don't worry about "refreshing"
+        [self performSelector:@selector(refresh) withObject:nil afterDelay:5.0f];
     }
-    [self refresh];
+    
 }
 
 @end

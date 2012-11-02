@@ -234,6 +234,7 @@
 }
 
 - (void)downloadPhoto:(NSString *)urlStr {
+    NSLog(@"PPPDV (not IMGV) - %@",urlStr);
     self.coverImageView.clipsToBounds = YES;
     if (!self.event.image) {
         // Download photo
@@ -311,6 +312,7 @@
 
 #pragma mark - Facebook API Calls
 - (void)downloadPhoto:(NSString *)urlStr forImageView:(UIImageView*)imageView {
+    NSLog(@"PPPDV (IMGV) - %@",urlStr);
     if (!self.event.image) {
         // Download photo
         UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
@@ -488,12 +490,14 @@
 // Get write permissions
 - (void)getWritePermissions {
     // include any of the "publish" or "manage" permissions
-    NSArray *writePermissions = [NSArray arrayWithObjects:@"publish_stream", nil];
+    if(![[[FBSession activeSession] permissions] containsObject:@"publish_stream"]){
+    NSArray *writePermissions = [NSArray arrayWithObjects:@"publish_stream", @"rsvp_event", nil];
     [[FBSession activeSession] reauthorizeWithPublishPermissions:writePermissions
                                                  defaultAudience:FBSessionDefaultAudienceFriends
                                                completionHandler:^(FBSession *session, NSError *error) {
                                                    /* handle success + failure in block */
                                                }];
+    }
 }
 
 #pragma mark - Camera Delegate Methods
